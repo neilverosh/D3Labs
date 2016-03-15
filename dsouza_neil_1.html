@@ -1,0 +1,49 @@
+﻿<html>
+	<head>
+		<title>First Assignment</title>
+		<style>
+			body {
+				margin: 0px;
+			}
+			h1  {
+				color: white;
+				background-color: black;
+			}
+			div {
+				padding: 10px
+			}
+			ul li{
+			list-style: none;
+			margin: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Gapminder - Wealth and Health of Nations</h1>
+		<div id ="content">
+			<h2>Countries</h2>
+			<label>Name </label>
+			<input type="text" id='input'>
+			<button onclick="addcountry()">Add</button>
+			<ul id='list'>
+			<li>USA</li>
+			<li>Mexico</li>
+			<li>Canada</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var newname;
+		function addcountry(newname) {
+			if (!newname) {
+				newname = document.getElementById('input').value;
+
+			}
+			var list = document.getElementById('list');
+			var newitem = document.createElement('li');
+			newitem.innerHTML = newname;
+			list.appendChild(newitem);
+		}
+		addcountry(newname);
+	</script>
+</html>

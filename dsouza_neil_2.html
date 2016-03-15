@@ -1,0 +1,48 @@
+﻿<html>
+	<head>
+		<title>Second Assignment</title>
+		<style>
+			body {
+				margin: 0px;
+			}
+			h1  {
+				color: white;
+				background-color: black;
+			}
+			h2 {
+				padding: 10px
+			}
+			div {
+				padding: 10px
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>Gapminder - Wealth and Health of Nations</h1>
+		<h2>Countries</h2>
+		<div id ="content"></div>
+	</body>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		var viz = d3.select('#content');
+		var countries
+		
+		d3.json('https://raw.githubusercontent.com/CristianFelix/infoviz/master/gapminder.json', 
+		function(error, result) {
+			countries = result;
+			render();
+		})
+		
+		function render() {
+			var changes = viz.selectAll('div')
+				.data(countries, function(d) { return d.name});
+			
+			changes.enter()
+					.append('div')
+					.text(function(d) {return d.name});
+		
+		}
+		
+	</script>
+</html>
